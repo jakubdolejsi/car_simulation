@@ -1,20 +1,30 @@
+from __future__ import annotations
+
 import configparser
 import os
-
 import defines
 
 
 class ModeConfiguration:
+    """
+    Configuration class for simulation model
+    """
 
     __configuration: dict
-    __default_values = {
+
+    __default_values: dict = {
         'cars': 10_000,
         'chargers': 100,
         'sim_len': 7
     }
-    validated = False
 
-    def load(self):
+    validated: bool = False
+
+    def load(self) -> object:
+        """
+        Load all configuration from config.ini file specified in config directory
+        :rtype: ModeConfiguration
+        """
         config = configparser.ConfigParser()
         config.read(os.path.join('config', 'config.ini'))
 
@@ -32,15 +42,22 @@ class ModeConfiguration:
         self.__configuration = dictionary['ModelArgs']
         return self
 
-    def enable_default(self):
-
+    def enable_default(self) -> ModeConfiguration:
+        """
+        Enable setting default values for model parameters
+        :rtype: ModeConfiguration
+        """
         for key, value in self.__default_values.items():
             if not key in self.__configuration:
                 self.__configuration[key] = value
         self.validated = True
         return self
 
-    def initialize(self):
+    def initialize(self) -> ModeConfiguration:
+        """
+        Initialize model with loaded parameters
+        :rtype: ModeConfiguration
+        """
         if not self.validated:
             print('\n*********** WARNING ***********\n')
             print('DEFAULT VALUES ARE NOT CONFIGURED\n')
@@ -51,4 +68,8 @@ class ModeConfiguration:
         defines.CHARGING_ON_PUBLIC_STATION_COUNT = self.__configuration['cars']
         defines.CHARGERS_IN_CITY_CENTRE = defines.CHARGING_STATIONS_COUNT * 0.65
         defines.CHARGERS_OUTSIDE_CITY_CENTRE = defines.CHARGING_STATIONS_COUNT * 0.35
-        print(self.__configuration)
+
+        print(f'\nModel loaded with following configuration')
+        print(f'{self.__configuration}\n')
+
+        return self
