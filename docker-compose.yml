@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-  simmulation:
+  car_simmulation:
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - .:/simmulation
-    working_dir: /simmulation
+      - .:/car_simmulation
+    working_dir: /car_simmulation
 #    command: ['mvn', 'spring-boot:run']
