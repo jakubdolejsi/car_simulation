@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 class Stats:
     whole_process_duration = []
     chosen_stations = []
-    reqests = []
+    requests = []
 
 
     @classmethod
@@ -24,4 +24,4 @@ class Stats:
 
     @classmethod
     def request_count(cls):
-        print('-- Total charging request count during simulation: {0}'.format(len(cls.reqests)))
+        print('-- Total charging request count during simulation: {0}'.format(len(cls.requests)))

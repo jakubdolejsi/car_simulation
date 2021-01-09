@@ -15,7 +15,7 @@ class RequestGenerator:
 
     def generate_request(self, env):
         while True:
-            Stats.reqests.append(1)
+            Stats.requests.append(1)
             station_index = self.choose_station()
 
             station = self.resource_list[station_index]
