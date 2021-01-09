@@ -7,14 +7,14 @@ Simulation model of electric cars and charging stations in Brno in Czech Republi
 Model configuration is enabled via config.ini file located in config folder.
 
 
-####**Syntax**
+### Syntax
 ```
 cars=integer
 chargers=integer
 sim_len=integer
 ```
 
-####**Legend**
+### Legend
 
 - **cars**: integer value of number of cars that will be available 
 - **chargers**: integer value of number of chargers that will be available 
@@ -22,7 +22,7 @@ sim_len=integer
 
 
 
-####**Example values**
+### Example values
 ```
 cars=10_000
 chargers=500
