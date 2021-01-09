@@ -14,6 +14,8 @@ class Simulation:
         Stats.print_process_duration()
         Stats.print_station_info()
         Stats.request_count()
+        Stats.get_average_time_in_queue()
+        Stats.get_time_in_queue_without_waiting()
 
     def run(self):
         defines.CountArriveTimes()

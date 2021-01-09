@@ -20,7 +20,7 @@ class ModeConfiguration:
 
     validated: bool = False
 
-    def load(self) -> object:
+    def load(self) -> ModeConfiguration:
         """
         Load all configuration from config.ini file specified in config directory
         :rtype: ModeConfiguration

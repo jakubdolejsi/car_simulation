@@ -18,6 +18,8 @@ class ChargingCar:
         with self.station.request() as charging_request:
             yield charging_request
 
+            Stats.time_in_queue.append(env.now - self.arrive_time)
+
             yield env.timeout(uniform(1 * defines.MINUTEs, 2 * defines.MINUTEs))
 
             if random() > 0.555: # automobil nepodporuje rychlonabijeni

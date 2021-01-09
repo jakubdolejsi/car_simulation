@@ -1,3 +1,4 @@
+import sys
 from random import randint, random
 
 from simpy import Environment, Resource
@@ -13,7 +14,10 @@ class RequestGenerator:
         self.generator_process  = env.process(self.generate_request(env))
         self.resource_list = [Resource(env, capacity=1) for _ in range(defines.CHARGING_STATIONS_COUNT)]
 
-    def generate_request(self, env):
+    def generate_request(self, env: Environment):
+        progress = 1
+        step_size = defines.SIMULATION_LEN / 100
+        tmp_step = step_size
         while True:
             Stats.requests.append(1)
             station_index = self.choose_station()
@@ -21,7 +25,14 @@ class RequestGenerator:
             station = self.resource_list[station_index]
             Stats.chosen_stations.append(station_index)
 
+
+            if env.now > tmp_step:
+                print(f'Progress: {progress} %')
+                tmp_step = tmp_step + step_size
+                progress = progress + 1
+
             ChargingCar(env, station)
+
 
             is_night = defines.is_night(env.now)
             if is_night: # If is night
