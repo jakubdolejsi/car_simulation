@@ -10,8 +10,8 @@ class Stats:
     @classmethod
     def print_process_duration(cls):
         print("-- Average whole charing proces duration {0} minutes".format(round(sum(cls.whole_process_duration) / len(cls.whole_process_duration), 2)))
-        print("-- Max whole charing proces duration {0} minutes".format(round(max(cls.whole_process_duration),2)))
-        print("-- Min whole charing proces duration {0} minutes".format(round(min(cls.whole_process_duration),2)))
+        print("-- Max charging proces duration {0} minutes".format(round(max(cls.whole_process_duration),2)))
+        print("-- Min charging proces duration {0} minutes".format(round(min(cls.whole_process_duration),2)))
         print("")
 
 

@@ -25,5 +25,3 @@ class Simulation:
         env.run(until=self.simulation_end)
         print("\n-- Simulation run finished - Simulation time {} minutes... --".format(env.now))
         self.printStats()
-
-

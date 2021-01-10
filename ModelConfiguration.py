@@ -3,6 +3,7 @@ from __future__ import annotations
 import configparser
 import os
 import defines
+from Stats import Stats
 
 
 class ModeConfiguration:
@@ -15,7 +16,8 @@ class ModeConfiguration:
     __default_values: dict = {
         'cars': 10_000,
         'chargers': 100,
-        'sim_len': 7
+        'sim_len': 7,
+        'distance_per_charge': 294.25926
     }
 
     validated: bool = False
@@ -63,6 +65,8 @@ class ModeConfiguration:
             print('DEFAULT VALUES ARE NOT CONFIGURED\n')
 
 
+        defines.AVERAGE_DISTANCE_10_80 = self.__configuration['distance_per_charge'] * 0.7
+        defines.AVERAGE_DISTANCE_PER_CHARGE = self.__configuration['distance_per_charge']
         defines.CHARGING_STATIONS_COUNT = self.__configuration['chargers']
         defines.SIMULATION_LEN = self.__configuration['sim_len'] * 1 * defines.WEEKs
         defines.CHARGING_ON_PUBLIC_STATION_COUNT = self.__configuration['cars']

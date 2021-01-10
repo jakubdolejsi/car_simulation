@@ -12,13 +12,15 @@ Model configuration is enabled via config.ini file located in config folder.
 cars=integer
 chargers=integer
 sim_len=integer
+distance_per_charge=integer
 ```
 
 ### Legend
 
 - **cars**: integer value of number of cars that will be available 
 - **chargers**: integer value of number of chargers that will be available 
-- **sim_len**: Simulation time in weeks 
+- **sim_len**: Simulation time in weeks
+- **distance_per_charge**: Average car distance per one charge (in Kilometres) 
 
 
 
@@ -27,6 +29,7 @@ sim_len=integer
 cars=10_000
 chargers=500
 sim_len=5
+distance_per_charge=400
 ```
 
 

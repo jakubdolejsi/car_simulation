@@ -31,12 +31,12 @@ def is_night(sim_time):
 CHARGING_ON_PUBLIC_STATION_COUNT = None
 
 # Average distance car distance per 1 charge (in Kilometres)
-
-AVERAGE_DISTANCE_PER_CHARGE = 294.25926
+# 294.25926
+AVERAGE_DISTANCE_PER_CHARGE = None
 
 # Average car distance 10-80% battery capacity
 
-AVERAGE_DISTANCE_10_80 = AVERAGE_DISTANCE_PER_CHARGE * 0.7
+AVERAGE_DISTANCE_10_80 = None
 
 # Average car distance per one day
 
