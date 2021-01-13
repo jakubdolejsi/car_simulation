@@ -1,6 +1,4 @@
-from random import random, randint, uniform
-
-from simpy import Environment, Resource
+from random import random, uniform
 
 import defines
 from Stats import Stats

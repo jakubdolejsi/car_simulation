@@ -1,5 +1,4 @@
-import sys
-from random import randint, random
+from random import random
 
 from simpy import Environment, Resource
 import defines
@@ -27,7 +26,7 @@ class RequestGenerator:
 
 
             if env.now > tmp_step:
-                print(f'Progress: {progress} %')
+                Stats.log(message=f'Progress {progress} %', target='stdout')
                 tmp_step = tmp_step + step_size
                 progress = progress + 1
 

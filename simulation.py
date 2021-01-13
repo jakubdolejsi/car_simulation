@@ -10,7 +10,7 @@ class Simulation:
         self.simulation_end = simulation_end
 
     def printStats(self):
-        print("\n{0} STATS {0}\n".format(12*'-'))
+        Stats.log(message="\n{0} STATS {0}\n".format(12 * '-'))
         Stats.print_process_duration()
         Stats.print_station_info()
         Stats.request_count()
@@ -21,7 +21,7 @@ class Simulation:
         defines.CountArriveTimes()
         env = simpy.Environment()
         RequestGenerator(env)
-        print("\n-- Simulation run started - Simulation time {} minutes... --".format(env.now))
+        Stats.log(message="\n-- Simulation run started - Simulation time {} minutes... --".format(env.now))
         env.run(until=self.simulation_end)
-        print("\n-- Simulation run finished - Simulation time {} minutes... --".format(env.now))
+        Stats.log(message="\n-- Simulation run finished - Simulation time {} minutes... --".format(env.now))
         self.printStats()

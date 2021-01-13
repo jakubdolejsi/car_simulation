@@ -37,8 +37,8 @@ class ModeConfiguration:
                 try:
                     dictionary[section][option] = int(config.get(section, option))
                 except ValueError as ve:
-                    print('CONFIGURATION FILE IS NOT CORRECT!')
-                    print(f'ERROR: {ve}')
+                    Stats.log(message="CONFIGURATION FILE IS NOT CORRECT!")
+                    Stats.log(message=f"ERROR: {ve}")
                     exit(1)
 
         self.__configuration = dictionary['ModelArgs']
@@ -61,8 +61,8 @@ class ModeConfiguration:
         :rtype: ModeConfiguration
         """
         if not self.validated:
-            print('\n*********** WARNING ***********\n')
-            print('DEFAULT VALUES ARE NOT CONFIGURED\n')
+            Stats.log(message='\n*********** WARNING ***********\n')
+            Stats.log(message='DEFAULT VALUES ARE NOT CONFIGURED\n')
 
 
         defines.AVERAGE_DISTANCE_10_80 = self.__configuration['distance_per_charge'] * 0.7
@@ -73,7 +73,7 @@ class ModeConfiguration:
         defines.CHARGERS_IN_CITY_CENTRE = defines.CHARGING_STATIONS_COUNT * 0.65
         defines.CHARGERS_OUTSIDE_CITY_CENTRE = defines.CHARGING_STATIONS_COUNT * 0.35
 
-        print(f'\nModel loaded with following configuration')
-        print(f'{self.__configuration}\n')
+        Stats.log(message=f'\nModel loaded with following configuration')
+        Stats.log(message=f'{self.__configuration}\n')
 
         return self

@@ -37,3 +37,12 @@ class Stats:
     def get_time_in_queue_without_waiting(cls):
         no_waiting = cls.time_in_queue.count(0.0) / len(cls.time_in_queue) * 100
         print("-- Percentage of cars which charge without waiting in queue: {} %".format(round(no_waiting, 2)))
+
+    @classmethod
+    def log(cls, message, target='stdout'):
+        if target == 'stdout':
+            print(message)
+        else: # log to file
+            pass
+
+
